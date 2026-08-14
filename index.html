@@ -113,16 +113,24 @@
     <h2 class="font-display font-bold text-2xl text-ink mb-3">Xiao Hu: 小虎</h2>
     <p class="text-inkmute mb-6">Little Tiger is very cool, and I sometimes use him in my usernames! Unfortunately, he ran away. Here are some photos of him.</p>
 
-    <div class="rounded-xl border border-ink/10 bg-white overflow-hidden">
-      <div class="relative aspect-[4/3] bg-gridline/30 flex items-center justify-center">
-        <img id="cat-img" src="" alt="Xiao Hu" class="hidden absolute inset-0 w-full h-full object-cover" />
-        <p id="cat-empty" class="font-mono text-xs text-inkmute px-6 text-center">photos coming soon</p>
+    <div class="rounded-xl border border-ink/10 bg-white p-3 sm:p-4">
+      <div class="relative overflow-hidden rounded-lg">
+        <div id="cat-track" class="flex transition-transform duration-500 ease-in-out"></div>
+
+        <button id="cat-prev" type="button" class="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-white/80 p-2 text-ink shadow-sm transition hover:bg-white focus:outline-none focus:ring-2 focus:ring-chalk/60" aria-label="Previous slide">
+          <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M12.79 5.23a.75.75 0 0 1 0 1.06L9.06 10l3.73 3.71a.75.75 0 1 1-1.06 1.06l-4.25-4.25a.75.75 0 0 1 0-1.06l4.25-4.25a.75.75 0 0 1 1.06 0Z" clip-rule="evenodd"/>
+          </svg>
+        </button>
+
+        <button id="cat-next" type="button" class="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-white/80 p-2 text-ink shadow-sm transition hover:bg-white focus:outline-none focus:ring-2 focus:ring-chalk/60" aria-label="Next slide">
+          <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 0 1 0-1.06L10.94 10 7.21 6.29a.75.75 0 0 1 1.06-1.06l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0Z" clip-rule="evenodd"/>
+          </svg>
+        </button>
       </div>
-      <div id="cat-controls" class="hidden items-center justify-between px-4 py-2.5 border-t border-ink/10">
-        <button id="cat-prev" type="button" class="font-mono text-xs text-inkmute hover:text-ink">&larr; prev</button>
-        <span id="cat-counter" class="font-mono text-xs text-inkmute"></span>
-        <button id="cat-next" type="button" class="font-mono text-xs text-inkmute hover:text-ink">next &rarr;</button>
-      </div>
+
+      <div id="cat-dots" class="mt-4 flex items-center justify-center gap-2"></div>
     </div>
   </section>
 
@@ -191,49 +199,59 @@
   (function () {
     var TOTAL_CANDIDATES = 12;
     var candidates = [];
-    for (var i = 1; i <= TOTAL_CANDIDATES; i++) candidates.push('images/xiaohu/' + i + '.jpg');
+    for (var i = 1; i <= TOTAL_CANDIDATES; i++) {
+      candidates.push('images/xiaohu/' + i + '.jpg');
+    }
 
-    var found = [];
-    var checked = 0;
-    var idx = 0;
-
-    var imgEl = document.getElementById('cat-img');
-    var emptyEl = document.getElementById('cat-empty');
-    var controls = document.getElementById('cat-controls');
-    var counter = document.getElementById('cat-counter');
+    var track = document.getElementById('cat-track');
+    var dots = document.getElementById('cat-dots');
     var prevBtn = document.getElementById('cat-prev');
     var nextBtn = document.getElementById('cat-next');
 
-    function show(i) {
-      idx = (i + found.length) % found.length;
-      imgEl.src = found[idx];
-      counter.textContent = (idx + 1) + ' / ' + found.length;
+    if (!track || !dots || !prevBtn || !nextBtn) return;
+
+    var index = 0;
+
+    function renderSlides() {
+      track.innerHTML = candidates.map(function (src) {
+        return '<div class="w-full shrink-0"><img src="' + src + '" alt="Xiao Hu" class="h-80 w-full object-cover sm:h-96" /></div>';
+      }).join('');
+
+      dots.innerHTML = candidates.map(function (_, i) {
+        return '<button type="button" data-index="' + i + '" class="h-2.5 w-2.5 rounded-full bg-ink/20 transition-all duration-200 hover:bg-ink/40" aria-label="Go to slide ' + (i + 1) + '"></button>';
+      }).join('');
     }
 
-    function init() {
-      if (found.length === 0) return;
-      found.sort();
-      emptyEl.classList.add('hidden');
-      imgEl.classList.remove('hidden');
-      controls.classList.remove('hidden');
-      controls.classList.add('flex');
-      show(0);
+    function updateDots() {
+      Array.from(dots.children).forEach(function (dot, i) {
+        dot.classList.toggle('bg-ink', i === index);
+        dot.classList.toggle('w-6', i === index);
+        dot.classList.toggle('bg-ink/20', i !== index);
+      });
     }
 
-    function done() {
-      checked++;
-      if (checked === candidates.length) init();
+    function show(nextIndex) {
+      index = (nextIndex + candidates.length) % candidates.length;
+      track.style.transform = 'translateX(-' + (index * 100) + '%)';
+      updateDots();
     }
 
-    candidates.forEach(function (src) {
-      var test = new Image();
-      test.onload = function () { found.push(src); done(); };
-      test.onerror = done;
-      test.src = src;
+    renderSlides();
+    show(0);
+
+    prevBtn.addEventListener('click', function () {
+      show(index - 1);
     });
 
-    prevBtn.addEventListener('click', function () { show(idx - 1); });
-    nextBtn.addEventListener('click', function () { show(idx + 1); });
+    nextBtn.addEventListener('click', function () {
+      show(index + 1);
+    });
+
+    dots.addEventListener('click', function (event) {
+      var button = event.target.closest('[data-index]');
+      if (!button) return;
+      show(Number(button.dataset.index));
+    });
   })();
 </script>
 
