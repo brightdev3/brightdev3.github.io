@@ -1,0 +1,14 @@
+html { scroll-behavior: smooth; }
+body { background-color: #F7F9FB; }
+.grid-paper {
+  background-image:
+  linear-gradient(#DCE6F0 1px, transparent 1px),
+  linear-gradient(90deg, #DCE6F0 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+::selection { background: #F6C453; color: #26324A; }
+a:focus-visible, button:focus-visible {
+  outline: 2px solid #3B6EA5;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
