@@ -1,12 +1,241 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Hello World!</title>
-  </head>
-  <body>
-    <h1>Hello world!</h1>  
-    <p>I am Deven Wei, a student at Macleans College.</p>
-    <p>Check out my <a href="https://github.com/brightdev3">Github</a> page!</p>
-    <p>Discord username: <code>omega314</code></p>
-  </body>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Deven Wei</title>
+<meta name="description" content="Deven Wei: Year 9 at Macleans College" />
+
+<link rel="icon" type="image/x-icon" href="./images/favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          paper: '#F7F9FB',
+          ink: '#26324A',
+          inkmute: '#5B6B85',
+          gridline: '#DCE6F0',
+          tiger: '#EF7B45',
+          tigerdark: '#C85A28',
+          leaf: '#3F9469',
+          chalk: '#3B6EA5',
+        },
+        fontFamily: {
+          display: ['"Space Grotesk"', 'sans-serif'],
+          body: ['"Plus Jakarta Sans"', 'sans-serif'],
+          mono: ['"JetBrains Mono"', 'monospace'],
+        },
+      },
+    },
+  };
+</script>
+
+<style>
+  body { background-color: #F7F9FB; }
+  .grid-paper {
+    background-image:
+      linear-gradient(#DCE6F0 1px, transparent 1px),
+      linear-gradient(90deg, #DCE6F0 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+  ::selection { background: #F6C453; color: #26324A; }
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid #3B6EA5;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+</style>
+</head>
+
+<body class="font-body text-ink antialiased">
+
+<header class="border-b border-dashed border-ink/15">
+  <div class="max-w-3xl mx-auto px-5 sm:px-8 h-14 flex items-center justify-between">
+    <a href="#top" class="font-mono text-sm font-medium text-ink">
+      devenwei<span class="text-tigerdark">.me</span>
+    </a>
+    <nav class="flex items-center gap-4 sm:gap-6 font-mono text-xs sm:text-sm text-inkmute">
+      <a href="#stuff" class="hover:text-ink">stuff</a>
+      <a href="#about" class="hover:text-ink">about</a>
+      <a href="#cat" class="hover:text-ink">cat</a>
+      <a href="#contact" class="hover:text-ink">contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="grid-paper">
+    <div class="max-w-3xl mx-auto px-5 sm:px-8 pt-14 pb-16 sm:pt-20 sm:pb-20">
+      <p class="font-mono text-xs sm:text-sm text-chalk mb-3">&gt; Year 9 at Macleans College</p>
+      <h1 class="font-display font-bold text-4xl sm:text-5xl leading-tight text-ink">Hi, I'm Deven Wei.</h1>
+      <p class="mt-3 text-inkmute">I like maths and coding.</p>
+    </div>
+  </section>
+
+  <section id="stuff" class="max-w-3xl mx-auto px-5 sm:px-8 py-14 sm:py-16 border-t border-dashed border-ink/15">
+    <h2 class="font-display font-bold text-2xl text-ink mb-5">Stuff</h2>
+    <p class="text-inkmute leading-relaxed mb-5">
+      Coming soon! For now, check out my Github: <a href="https://github.com/brightdev3/brightdev3" class="text-ink text-blue-600 underline hover:text-blue-800 hover:no-underline">brightdev3</a>
+    </p>
+  </section>
+
+  <section id="about" class="max-w-3xl mx-auto px-5 sm:px-8 py-14 sm:py-16">
+    <h2 class="font-display font-bold text-2xl text-ink mb-3">About</h2>
+    <p class="text-inkmute leading-relaxed mb-5">
+      I'm in Year 9 at Macleans College. I like doing maths competitions and am learning competitive programming.
+    </p>
+    <div class="rounded-xl border border-ink/10 bg-white overflow-hidden">
+      <div class="px-4 py-2 border-b border-ink/10 bg-ink/[0.03] font-mono text-xs text-inkmute">
+        Cooked!!!
+      </div>
+      <pre class="font-mono text-xs sm:text-sm text-ink leading-relaxed p-4 sm:p-5 overflow-x-auto whitespace-pre-wrap">✅️ Completed:
+- Sell on NZPMC R2 ⚛️
+- Sell on AMC 🔢
+- Sell on NZPC 💻
+- Sell on ICAS English ✏️
+
+📌 To do:
+- Sell on ICAS Science ✏️
+- Sell on ICAS Maths ✏️
+- Sell on Mathex 🏟️
+- Sell on NZMO R2 📐</pre>
+    </div>
+  </section>
+
+  <section id="cat" class="max-w-3xl mx-auto px-5 sm:px-8 py-14 sm:py-16 border-t border-dashed border-ink/15">
+    <h2 class="font-display font-bold text-2xl text-ink mb-3">Xiao Hu: 小虎</h2>
+    <p class="text-inkmute mb-6">Little Tiger is very cool, and I sometimes use him in my usernames! Unfortunately, he ran away. Here are some photos of him.</p>
+
+    <div class="rounded-xl border border-ink/10 bg-white overflow-hidden">
+      <div class="relative aspect-[4/3] bg-gridline/30 flex items-center justify-center">
+        <img id="cat-img" src="" alt="Xiao Hu" class="hidden absolute inset-0 w-full h-full object-cover" />
+        <p id="cat-empty" class="font-mono text-xs text-inkmute px-6 text-center">photos coming soon</p>
+      </div>
+      <div id="cat-controls" class="hidden items-center justify-between px-4 py-2.5 border-t border-ink/10">
+        <button id="cat-prev" type="button" class="font-mono text-xs text-inkmute hover:text-ink">&larr; prev</button>
+        <span id="cat-counter" class="font-mono text-xs text-inkmute"></span>
+        <button id="cat-next" type="button" class="font-mono text-xs text-inkmute hover:text-ink">next &rarr;</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACT ===================== -->
+  <section id="contact" class="max-w-3xl mx-auto px-5 sm:px-8 py-14 sm:py-16 border-t border-dashed border-ink/15">
+    <h2 class="font-display font-bold text-2xl text-ink mb-5">Contact</h2>
+    <p class="text-inkmute mb-6">I can usually be found at Kupe house.</p>
+
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+
+      <button type="button" data-copy="hello@devenwei.me"
+              class="copy-card text-left rounded-xl border border-ink/10 bg-white p-4 hover:border-chalk/40">
+        <p class="font-mono text-[11px] text-inkmute mb-1">email</p>
+        <p class="text-sm font-medium text-ink break-all">hello@devenwei.me</p>
+        <p class="copy-status font-mono text-[11px] text-leaf mt-1 h-4"></p>
+      </button>
+
+      <button type="button" data-copy="omega314"
+              class="copy-card text-left rounded-xl border border-ink/10 bg-white p-4 hover:border-chalk/40">
+        <p class="font-mono text-[11px] text-inkmute mb-1">discord</p>
+        <p class="text-sm font-medium text-ink break-all">omega314</p>
+        <p class="copy-status font-mono text-[11px] text-leaf mt-1 h-4"></p>
+      </button>
+
+      <button type="button" data-copy="xiaohuxiashan888"
+              class="copy-card text-left rounded-xl border border-ink/10 bg-white p-4 hover:border-chalk/40">
+        <p class="font-mono text-[11px] text-inkmute mb-1">wechat</p>
+        <p class="text-sm font-medium text-ink break-all">xiaohuxiashan888</p>
+        <p class="copy-status font-mono text-[11px] text-leaf mt-1 h-4"></p>
+      </button>
+
+      <a href="https://github.com/brightdev3" target="_blank" rel="noopener noreferrer"
+         class="rounded-xl border border-ink/10 bg-white p-4 hover:border-chalk/40">
+        <p class="font-mono text-[11px] text-inkmute mb-1">github</p>
+        <p class="text-sm font-medium text-ink break-all">brightdev3</p>
+      </a>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="border-t border-dashed border-ink/15">
+  <div class="max-w-3xl mx-auto px-5 sm:px-8 py-6">
+    <p class="font-mono text-xs text-inkmute">devenwei.me</p>
+  </div>
+</footer>
+
+<script>
+  // click-to-copy contact cards
+  document.querySelectorAll('.copy-card').forEach(function (card) {
+    card.addEventListener('click', async function () {
+      var value = card.getAttribute('data-copy');
+      var status = card.querySelector('.copy-status');
+      try {
+        await navigator.clipboard.writeText(value);
+        status.textContent = '> copied';
+      } catch (e) {
+        status.textContent = value;
+      }
+      setTimeout(function () { status.textContent = ''; }, 1500);
+    });
+  });
+
+  (function () {
+    var TOTAL_CANDIDATES = 12;
+    var candidates = [];
+    for (var i = 1; i <= TOTAL_CANDIDATES; i++) candidates.push('images/xiaohu/' + i + '.jpg');
+
+    var found = [];
+    var checked = 0;
+    var idx = 0;
+
+    var imgEl = document.getElementById('cat-img');
+    var emptyEl = document.getElementById('cat-empty');
+    var controls = document.getElementById('cat-controls');
+    var counter = document.getElementById('cat-counter');
+    var prevBtn = document.getElementById('cat-prev');
+    var nextBtn = document.getElementById('cat-next');
+
+    function show(i) {
+      idx = (i + found.length) % found.length;
+      imgEl.src = found[idx];
+      counter.textContent = (idx + 1) + ' / ' + found.length;
+    }
+
+    function init() {
+      if (found.length === 0) return;
+      found.sort();
+      emptyEl.classList.add('hidden');
+      imgEl.classList.remove('hidden');
+      controls.classList.remove('hidden');
+      controls.classList.add('flex');
+      show(0);
+    }
+
+    function done() {
+      checked++;
+      if (checked === candidates.length) init();
+    }
+
+    candidates.forEach(function (src) {
+      var test = new Image();
+      test.onload = function () { found.push(src); done(); };
+      test.onerror = done;
+      test.src = src;
+    });
+
+    prevBtn.addEventListener('click', function () { show(idx - 1); });
+    nextBtn.addEventListener('click', function () { show(idx + 1); });
+  })();
+</script>
+
+</body>
 </html>
