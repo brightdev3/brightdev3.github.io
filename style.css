@@ -12,3 +12,24 @@ a:focus-visible, button:focus-visible {
   outline-offset: 3px;
   border-radius: 4px;
 }
+
+.icon-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-fade {
+  opacity: 0.78;
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.icon-link:hover .icon-fade,
+.contact-item:hover .icon-fade {
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+.contact-item {
+  cursor: pointer;
+}
